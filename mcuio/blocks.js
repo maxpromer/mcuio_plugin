@@ -1,12 +1,11 @@
-
 Blockly.Blocks['mcuio_wait_ready'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "MCUio wait ready",
+			"message0": Blockly.Msg.MCUIO_WAIT_READY_MESSAGE,
 			"previousStatement": null,
 			"nextStatement": null,
 			"colour": 180,
-			"tooltip": "Wait arduino ready",
+			"tooltip": Blockly.Msg.MCUIO_WAIT_READY_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}
@@ -15,7 +14,7 @@ Blockly.Blocks['mcuio_wait_ready'] = {
 Blockly.Blocks['mcuio_digital_write'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "digital write pin %1 to %2",
+			"message0": Blockly.Msg.MCUIO_DIGITAL_WRITE_MESSAGE,
 			"args0": [{
 				"type": "field_dropdown",
 				"name": "pin",
@@ -51,7 +50,7 @@ Blockly.Blocks['mcuio_digital_write'] = {
 			"previousStatement": null,
 			"nextStatement": null,
 			"colour": 180,
-			"tooltip": "Write digital value to any pin on Arduino",
+			"tooltip": Blockly.Msg.MCUIO_DIGITAL_WRITE_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}
@@ -60,7 +59,7 @@ Blockly.Blocks['mcuio_digital_write'] = {
 Blockly.Blocks['mcuio_digital_read'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "digital read pin %1",
+			"message0": Blockly.Msg.MCUIO_DIGITAL_READ_MESSAGE,
 			"args0": [{
 				"type": "field_dropdown",
 				"name": "pin",
@@ -87,7 +86,7 @@ Blockly.Blocks['mcuio_digital_read'] = {
 			}],
 			"output": null,
 			"colour": 180,
-			"tooltip": "Read digital value to any pin on Arduino",
+			"tooltip": Blockly.Msg.MCUIO_DIGITAL_READ_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}
@@ -96,7 +95,7 @@ Blockly.Blocks['mcuio_digital_read'] = {
 Blockly.Blocks['mcuio_analog_write'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "analog write pin %1 to %2",
+			"message0": Blockly.Msg.MCUIO_ANALOG_WRITE_MESSAGE,
 			"args0": [ {
 				"type": "field_dropdown",
 				"name": "pin",
@@ -115,7 +114,7 @@ Blockly.Blocks['mcuio_analog_write'] = {
 			"previousStatement": null,
 			"nextStatement": null,
 			"colour": 180,
-			"tooltip": "Write analog value to some pin on Arduino",
+			"tooltip": Blockly.Msg.MCUIO_ANALOG_WRITE_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}
@@ -124,7 +123,7 @@ Blockly.Blocks['mcuio_analog_write'] = {
 Blockly.Blocks['mcuio_analog_read'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "analog read pin %1",
+			"message0": Blockly.Msg.MCUIO_ANALOG_READ_MESSAGE,
 			"args0": [{
 				"type": "field_dropdown",
 				"name": "pin",
@@ -138,7 +137,7 @@ Blockly.Blocks['mcuio_analog_read'] = {
 			"inputsInline": true,
 			"output": null,
 			"colour": 180,
-			"tooltip": "Read analog value to some pin on Arduino",
+			"tooltip": Blockly.Msg.MCUIO_ANALOG_READ_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}
@@ -147,7 +146,7 @@ Blockly.Blocks['mcuio_analog_read'] = {
 Blockly.Blocks['mcuio_servo'] = {
 	init: function() {
 		this.jsonInit({
-			"message0": "servo pin %1 set to %2",
+			"message0": Blockly.Msg.MCUIO_SERVO_MESSAGE,
 			"args0": [{
 				"type": "field_dropdown",
 				"name": "pin",
@@ -175,7 +174,7 @@ Blockly.Blocks['mcuio_servo'] = {
 			"previousStatement": null,
 			"nextStatement": null,
 			"colour": 180,
-			"tooltip": "Write servo value to any pin on Arduino",
+			"tooltip": Blockly.Msg.MCUIO_SERVO_READ_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}
