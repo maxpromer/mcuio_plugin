@@ -19,20 +19,12 @@ Blockly.Blocks['mcuio_digital_write'] = {
 				"type": "field_dropdown",
 				"name": "pin",
 				"options": [
-					[ "0", "0" ],
-					[ "1", "1" ],
-					[ "2", "2" ],
-					[ "3", "3" ],
-					[ "4", "4" ],
-					[ "5", "5" ],
-					[ "6", "6" ],
-					[ "7", "7" ],
-					[ "8", "8" ],
-					[ "9", "9" ],
-					[ "10", "10" ],
-					[ "11", "11" ],
-					[ "12", "12" ],
-					[ "13", "13" ],
+					[ "D0", "7" ],
+					[ "D1", "8" ],
+					[ "D2", "9" ],
+					[ "D3", "10" ],
+					[ "D4", "12" ],
+					[ "D5", "13" ],
 					[ "A0", "14" ],
 					[ "A1", "15" ],
 					[ "A2", "16" ],
@@ -64,20 +56,12 @@ Blockly.Blocks['mcuio_digital_read'] = {
 				"type": "field_dropdown",
 				"name": "pin",
 				"options": [
-					[ "0", "0" ],
-					[ "1", "1" ],
-					[ "2", "2" ],
-					[ "3", "3" ],
-					[ "4", "4" ],
-					[ "5", "5" ],
-					[ "6", "6" ],
-					[ "7", "7" ],
-					[ "8", "8" ],
-					[ "9", "9" ],
-					[ "10", "10" ],
-					[ "11", "11" ],
-					[ "12", "12" ],
-					[ "13", "13" ],
+					[ "D0", "7" ],
+					[ "D1", "8" ],
+					[ "D2", "9" ],
+					[ "D3", "10" ],
+					[ "D4", "12" ],
+					[ "D5", "13" ],
 					[ "A0", "14" ],
 					[ "A1", "15" ],
 					[ "A2", "16" ],
@@ -92,6 +76,7 @@ Blockly.Blocks['mcuio_digital_read'] = {
 	}
 };
 
+/*
 Blockly.Blocks['mcuio_analog_write'] = {
 	init: function() {
 		this.jsonInit({
@@ -119,6 +104,7 @@ Blockly.Blocks['mcuio_analog_write'] = {
 		});
 	}
 };
+*/
 
 Blockly.Blocks['mcuio_analog_read'] = {
 	init: function() {
@@ -151,16 +137,16 @@ Blockly.Blocks['mcuio_servo'] = {
 				"type": "field_dropdown",
 				"name": "pin",
 				"options": [
-					[ "2", "2" ],
-					[ "4", "4" ],
-					[ "7", "7" ],
-					[ "8", "8" ],
-					[ "12", "12" ],
-					[ "13", "13" ],
-					[ "A0", "A0" ],
-					[ "A1", "A1" ],
-					[ "A2", "A2" ],
-					[ "A3", "A3" ]
+					[ "D0", "7" ],
+					[ "D1", "8" ],
+					[ "D2", "9" ],
+					[ "D3", "10" ],
+					[ "D4", "12" ],
+					[ "D5", "13" ],
+					[ "A0", "14" ],
+					[ "A1", "15" ],
+					[ "A2", "16" ],
+					[ "A3", "17" ]
 				]
 			}, {
 				"type": "input_value",
@@ -174,7 +160,40 @@ Blockly.Blocks['mcuio_servo'] = {
 			"previousStatement": null,
 			"nextStatement": null,
 			"colour": 180,
-			"tooltip": Blockly.Msg.MCUIO_SERVO_READ_TOOLTIP,
+			"tooltip": Blockly.Msg.MCUIO_SERVO_TOOLTIP,
+			"helpUrl": "https://www.ioxhop.com/"
+		});
+	}
+};
+
+Blockly.Blocks['mcuio_motor'] = {
+	init: function() {
+		this.jsonInit({
+			"message0": Blockly.Msg.MCUIO_MOTOR_MESSAGE,
+			"args0": [{
+				"type": "field_dropdown",
+				"name": "n",
+				"options": [
+					[ "1", "1" ],
+					[ "2", "2" ]
+				]
+			}, {
+				"type": "field_dropdown",
+				"name": "dir",
+				"options": [
+					[ Blockly.Msg.MCUIO_MOTOR_FORWARD, "1" ],
+					[ Blockly.Msg.MCUIO_MOTOR_BACKWARD, "2" ]
+				]
+			}, {
+				"type": "input_value",
+				"name": "value",
+				"check": "Number"
+			}],
+			"inputsInline": true,
+			"previousStatement": null,
+			"nextStatement": null,
+			"colour": 180,
+			"tooltip": Blockly.Msg.MCUIO_MOTOR_TOOLTIP,
 			"helpUrl": "https://www.ioxhop.com/"
 		});
 	}

@@ -66,15 +66,15 @@ void MCUio::process(Driver *drv) {
 		case s_detect:
 			// detect i2c device
 			if (i2c->detect(channel, address) == ESP_OK) {	
-				uint8_t data[] = { 0xFF, 0 };
-				if (i2c->write(channel, address, data, 2) == ESP_OK) {
+				// uint8_t data[] = { 0xFF, 0 };
+				// if (i2c->write(channel, address, data, 2) == ESP_OK) {
 					// get current tickcnt
 					tickcnt = get_tickcnt();
 					
 					state = s_reset;
-				} else {
-					state = s_error;
-				}
+				//} else {
+				//	state = s_error;
+				//}
 			} else {
 				state = s_error;
 			}
@@ -83,12 +83,17 @@ void MCUio::process(Driver *drv) {
 		case s_reset:
 			// wait polling_ms timeout
 			if (is_tickcnt_elapsed(tickcnt, 100)) {
-				// set initialized flag
-				initialized = true;
-				// clear error flag
-				error = false;
+				// get current tickcnt
+				tickcnt = get_tickcnt();
+					
+				if (i2c->detect(channel, address) == ESP_OK) {
+					// set initialized flag
+					initialized = true;
+					// clear error flag
+					error = false;
 
-				state = s_running;
+					state = s_running;
+				}
 			}
 			break;
 		
@@ -124,6 +129,8 @@ void MCUio::pinMode(uint8_t pin, uint8_t mode) {
 	
 	uint8_t data[] = { (uint8_t)(pin + 1), mode };
 	i2c->write(channel, address, data, 2);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 }
 
 void MCUio::digitalWrite(uint8_t pin, uint8_t value) {
@@ -134,6 +141,8 @@ void MCUio::digitalWrite(uint8_t pin, uint8_t value) {
 	
 	uint8_t data[] = { (uint8_t)(pin + 21), value };
 	i2c->write(channel, address, data, 2);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 }
 
 int MCUio::digitalRead(uint8_t pin) {
@@ -145,6 +154,8 @@ int MCUio::digitalRead(uint8_t pin) {
 	uint8_t reg = pin + 21;
 	uint8_t data = 0;
 	i2c->read(channel, address, &reg, 1, &data, 1);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 
 	return data;
 }
@@ -158,6 +169,8 @@ int MCUio::analogRead(uint8_t pin) {
 	uint8_t reg = (pin - 14) * 2 + 41;
 	uint8_t data[2];
 	i2c->read(channel, address, &reg, 1, data, 2);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 	
 	return data[0] | (data[1]<<8);
 }
@@ -178,6 +191,8 @@ void MCUio::analogWrite(uint8_t pin, uint8_t value) {
 	
 	uint8_t data[] = { addr, value };
 	i2c->write(channel, address, data, 2);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 }
 
 void MCUio::tone(uint8_t pin, int frequency) {
@@ -192,6 +207,8 @@ void MCUio::tone(uint8_t pin, int frequency) {
 		61, (uint8_t)((pin&0x0F)|0x10)
 	};
 	i2c->write(channel, address, data, 6);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 }
 
 void MCUio::noTone(uint8_t pin) {
@@ -204,6 +221,8 @@ void MCUio::noTone(uint8_t pin) {
 	
 	uint8_t data[] = { 61, (uint8_t)(pin&0x0F) };
 	i2c->write(channel, address, data, 2);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 }
 
 void MCUio::servo(uint8_t pin, uint8_t angle) {
@@ -226,6 +245,8 @@ void MCUio::servo(uint8_t pin, uint8_t angle) {
 	
 	uint8_t data[] = { addr, angle };
 	i2c->write(channel, address, data, 2);
+	
+	vTaskDelay(1 / portTICK_RATE_MS);
 }
 
 

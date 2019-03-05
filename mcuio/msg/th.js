@@ -14,4 +14,10 @@ Blockly.Msg.MCUIO_ANALOG_READ_MESSAGE = "อ่านค่าแอนะล็
 Blockly.Msg.MCUIO_ANALOG_READ_TOOLTIP = "อ่านค่าแอนะล็อกจากขา A0 ถึง A3 ของบอร์ด Arduino";
 
 Blockly.Msg.MCUIO_SERVO_MESSAGE = "เซอร์โวมอเตอร์ขา %1 ให้หมุนไปที่ %2";
-Blockly.Msg.MCUIO_SERVO_READ_TOOLTIP = "กำหนดใช้งานเซอร์โวมอเตอร์ และกำหนดองศาการหมุนของเซอร์โวมอเตอร์ที่ต่อกับขาใด ๆ ของบอร์ด Arduino";
+Blockly.Msg.MCUIO_SERVO_TOOLTIP = "กำหนดใช้งานเซอร์โวมอเตอร์ และกำหนดองศาการหมุนของเซอร์โวมอเตอร์ที่ต่อกับขาใด ๆ ของบอร์ด Arduino";
+
+Blockly.Msg.MCUIO_MOTOR_MESSAGE = "มอเตอร์ %1 หมุน %2 ที่ความเร็ว %3";
+Blockly.Msg.MCUIO_MOTOR_FORWARD = "ตามเข็ม";
+Blockly.Msg.MCUIO_MOTOR_BACKWARD = "ทวนเข็ม";
+Blockly.Msg.MCUIO_MOTOR_TOOLTIP = "กำหนดให้มอเตอร์ 1 หรือ 2 หมุนตามเข็มหรือทวนเข็ม";
+

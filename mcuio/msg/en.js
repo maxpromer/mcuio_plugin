@@ -14,4 +14,10 @@ Blockly.Msg.MCUIO_ANALOG_READ_MESSAGE = "analog read pin %1";
 Blockly.Msg.MCUIO_ANALOG_READ_TOOLTIP = "Read analog value to some pin on Arduino";
 
 Blockly.Msg.MCUIO_SERVO_MESSAGE = "servo pin %1 set to %2";
-Blockly.Msg.MCUIO_SERVO_READ_TOOLTIP = "Write servo value to any pin on Arduino";
+Blockly.Msg.MCUIO_SERVO_TOOLTIP = "Write servo value to any pin on Arduino";
+
+Blockly.Msg.MCUIO_MOTOR_MESSAGE = "motor %1 move %2 at speed %3";
+Blockly.Msg.MCUIO_MOTOR_FORWARD = "forward";
+Blockly.Msg.MCUIO_MOTOR_BACKWARD = "backward";
+Blockly.Msg.MCUIO_MOTOR_TOOLTIP = "Set motor 1 or 2 move forward/backward";
+
